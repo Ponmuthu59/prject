@@ -314,27 +314,24 @@
     
     // Set the inner HTML content
     innerContent.innerHTML = `
-    <div class="box" id="ps1">
-    <h2 class="stopic">Port Scanning</h2>
-    <form action="/scan_ports" method="POST">
-    <label for="target_ip">Enter Target IP:</label>
-    <input type="text" id="target_ip" name="target_ip" required><br>
-    <label for="port_range" style="margin-top: 10px;">Port Range:</label>
-    <select id="port_range">
-        <option value="21-FTP">21-FTP</option>
-        <option value="22-SSH">22-SSH</option>
-        <option value="23-TELNET">23-TELNET</option>
-        <option value="25-SMTP">25-SMTP</option>
-        <option value="53-DNS">53-DNS</option>
-        <option value="67-DHCP">67-DHCP</option>
-        <option value="80-HTTP">80-HTTP</option>
-        <option value="443-HTTPS">443-HTTPS</option>
-        <option value="123-NTP">123-NTP</option>
-        <option value="3389-RDP">3389-RDP</option>
-    </select><BR>
-    <button type="submit" class="btn1">Scan Ports</button>
-    </form>
-    </div>
+            <div class="card">
+            <div class="card-header">
+                <h5>Scan Ports</h5>
+            </div>
+            <div class="card-body">
+                <form action="/scan_ports" method="POST">
+                    <div class="form-group">
+                        <label for="target_ip">Target IP:</label>
+                        <input type="text" class="form-control" id="target_ip" name="target_ip" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="port_range">Port Range (e.g., 20-80):</label>
+                        <input type="text" class="form-control" id="port_range" name="port_range" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Scan Ports</button>
+                </form>
+            </div>
+        </div>
     `;
     
     // Show the inner content
@@ -505,33 +502,34 @@
             });
     </script>
 <body>
-    <img src="PT2.png" width="95%" height="60%" style="align-items: center; display: flex;">
+    <img src="{{ url_for('static', filename='images/PT2.png') }}" width="95%" height="60%" style="align-items: center; display: flex;">
     <h1 class="topic" id="up1">Penetration Testing Application</h1>
 
     <div class="boxtop">
 
         <div class="sqlinject" onclick="sqlclick();">
-            <img src="sql2" style="width: 100px; height: 90px;">
+            <img src="{{ url_for('static', filename='images/sql2.png') }}" style="width: 100px; height: 90px;">
             <p>SQL Injection</p>
         </div>
 
         <div class="portscan" onclick="psclick();">
-            <img src="templates/port1.png" style="width: 100px; height: 90px;">
+            
+            <img src="{{ url_for('static', filename='images/PT1.webp') }}" style="width: 100px; height: 90px;">
             <p>Port Scanning</p>
         </div>
 
         <div class="bruteforce" onclick="bfclick();">
-            <img src="bruteforce1.jpg" style="width: 80px; height: 60px; padding-top: 8px; padding-bottom: 16px;">
+            <img src="{{ url_for('static', filename='images/bruteforce1.jpg') }}" style="width: 80px; height: 60px; padding-top: 8px; padding-bottom: 16px;">
             <p>SSH brute force attack</p>
         </div>
 
         <div class="ddos" onclick="dosclick();">
-            <img src="ddos1.png" style="width: 80px; height: 90px;">
+            <img src="{{ url_for('static', filename='images/ddos1.png') }}" style="width: 80px; height: 90px;">
             <p>DOS attack</p>
         </div>
 
         <div class="xss" onclick="xssclick();">
-            <img src="XSS.png" style="width: 80px; height: 60px; padding-top: 8px; padding-bottom: 10px;">
+            <img src="{{ url_for('static', filename='images/XSS.png') }}" style="width: 80px; height: 60px; padding-top: 8px; padding-bottom: 10px;">
             <p>XSS attack</p>
         </div>
     </div>
@@ -543,7 +541,7 @@
 
       <!-- Chatbox Toggle Button -->
 <button class="chatbox-toggle" onclick="toggleChatbox()">
-    <img src="msg2.png" alt="Chat Icon" width="50px">
+    <img src="{{ url_for('static', filename='images/msg2.png') }}" alt="Chat Icon" width="50px">
   </button>
   
   <!-- Botpress Chat Widget -->
